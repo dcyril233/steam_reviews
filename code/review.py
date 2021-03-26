@@ -7,4 +7,4 @@ class Review:
     import the file of reviews
     """
     def __init__(self, path):
-        self.row = pd.read_csv(path)
+        self.raw = pd.read_csv(path)
