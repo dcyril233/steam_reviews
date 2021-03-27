@@ -6,10 +6,13 @@ import re
 class Preprocess:
     
     # create object storing feature
-    def __init__(self, raw_data, stop_words_path, pattern):
+    def __init__(self, raw_data, stop_words_path, pattern, userdict=None):
         self.stop_words = self.get_stop_words(stop_words_path)
         filter_p = re.compile(pattern)
+        if(userdict != None):
+            jieba.load_userdict(userdict)
         self.token = self.tokenization(raw_data, filter_p)
+
 
     def get_stop_words(self, path):
         stop_words = set()
